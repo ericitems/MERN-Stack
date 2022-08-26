@@ -22,6 +22,13 @@ header .container {
   align-items: center;
   justify-content: space-between;
 }
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 header a {
   color: #333;
   text-decoration: none;
