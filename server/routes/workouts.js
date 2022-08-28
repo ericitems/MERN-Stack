@@ -1,17 +1,21 @@
-import express from "express"
-import controller, { middleware } from "../controllers/workouts.js"
+import express from "express";
+import controller, { middleware } from "../controllers/workouts.js";
 // import Workout from "../schemas/workouts.js"
 
-const router = express.Router()
+const router = express.Router();
 
-router.get("/", controller.getWorkouts)
+const { getWorkouts, createWorkout, getWorkout, updateWorkout, deleteWorkout } =
+  controller;
 
-router.post("/", controller.createWorkout)
+const { getId } = middleware;
+router.get("/", getWorkouts);
 
-router.get("/:id", middleware.getId, controller.getWorkout)
+router.post("/", createWorkout);
 
-router.patch("/:id", controller.updateWorkout)
+router.get("/:id", getId, getWorkout);
 
-router.delete("/:id", controller.deleteWorkout)
+router.patch("/:id", updateWorkout);
 
-export default router
+router.delete("/:id", deleteWorkout);
+
+export default router;

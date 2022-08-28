@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import workouts from "./routes/workouts.js";
+import user from "./routes/user.js";
 import cors from "cors";
 
 dotenv.config();
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/workouts", workouts);
+app.use("/api/user", user);
 
 mongoose
   .connect(process.env.DATABASE_URI)
