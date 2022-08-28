@@ -1,6 +1,13 @@
 import { Link } from "react-router-dom";
+import useWorkoutsContext from "../hooks/useWorkoutsContext";
 
 const Navbar = () => {
+  const { theme, dispatch } = useWorkoutsContext();
+
+  const handleThemeToggle = () => {
+    dispatch({ type: "TOGGLE_THEME" });
+  };
+
   return (
     <header>
       <div className="container">
@@ -40,6 +47,12 @@ const Navbar = () => {
           </svg>
           <h1>Workout Buddy</h1>
         </Link>
+        <span
+          className="dark-mode-button material-symbols-outlined"
+          onClick={handleThemeToggle}
+        >
+          {theme ? "dark_mode" : "light_mode"}
+        </span>
       </div>
     </header>
   );

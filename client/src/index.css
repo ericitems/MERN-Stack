@@ -7,12 +7,12 @@
   --error: #e7195a;
 }
 body {
-  background: #f1f1f1;
+  background: var(--color-background);
   margin: 0;
   font-family: "Poppins";
 }
 header {
-  background: #fff;
+  background: var(--color-primary);
 }
 header .container {
   max-width: 1400px;
@@ -21,6 +21,7 @@ header .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .nav-link {
@@ -30,23 +31,52 @@ header .container {
 }
 
 header a {
-  color: #333;
+  color: var(--color-header);
   text-decoration: none;
 }
+
+.dark-mode-button {
+  position: absolute;
+  margin-top: auto;
+  right: 80px;
+  background: var(--primary);
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+/* homepage */
 .pages {
   max-width: 1400px;
   padding: 20px;
   margin: 0 auto;
 }
 
-/* homepage */
 .home {
   display: grid;
   grid-template-columns: 3fr 1fr;
   gap: 100px;
 }
+
+.App {
+  --color-header: #333;
+  --color-text: #555;
+  --color-background: #f1f1f1;
+  --color-primary: #fff;
+  --color-input: #ddd;
+  background-color: var(--color-background);
+}
+
+.App-dark {
+  --color-header: rgb(125, 125, 125);
+  --color-text: rgb(163, 163, 163);
+  --color-background: #1e2227;
+  --color-primary: #23272e;
+  --color-input: #1d1f23;
+}
+
 .workout-details {
-  background: #fff;
+  background: var(--color-primary);
   border-radius: 4px;
   margin: 20px auto;
   padding: 20px;
@@ -61,7 +91,7 @@ header a {
 .workout-details p {
   margin: 0;
   font-size: 0.9em;
-  color: #555;
+  color: var(--color-text);
 }
 .workout-details span {
   position: absolute;
@@ -71,27 +101,33 @@ header a {
   background: var(--primary);
   padding: 4px;
   border-radius: 4px;
-  color: #fff;
+  color: var(--color-primary);
 }
 
 /* new workout form */
+form h3 {
+  color: var(--color-text);
+}
+
 label,
 input {
   display: block;
+  color: var(--color-text);
 }
 input {
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
   width: 100%;
-  border: 1px solid #ddd;
+  border: 1px solid var(--color-input);
+  background: var(--color-input);
   border-radius: 4px;
   box-sizing: border-box;
 }
 form button {
   background: var(--primary);
   border: 0;
-  color: #fff;
+  color: var(--color-primary);
   padding: 10px;
   font-family: "Poppins";
   border-radius: 4px;
@@ -99,7 +135,7 @@ form button {
 }
 div.error {
   padding: 10px;
-  background: #ffefef;
+  background: var(--color-primary);
   border: 1px solid var(--error);
   color: var(--error);
   border-radius: 4px;
